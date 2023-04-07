@@ -91,6 +91,9 @@
         padding: 20px;
         text-align: center;
       }
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -118,22 +121,22 @@
         </p>
       </section>
 
-      <section id="about">
+      <section id="about" class="hidden">
         <h2>About Me</h2>
         <p>[Your bio, background, education, and interests]</p>
       </section>
 
-      <section id="portfolio">
+      <section id="portfolio" class="hidden">
         <h2>Portfolio</h2>
         <p>[Showcase your projects, experience, and achievements]</p>
       </section>
 
-      <section id="blog">
+      <section id="blog" class="hidden">
         <h2>Blog</h2>
         <p>[Share your thoughts on topics related to your field]</p>
       </section>
 
-      <section id="contact">
+      <section id="contact" class="hidden">
         <h2>Contact</h2>
         <p>Get in touch with me:</p>
         <p>
@@ -148,6 +151,30 @@
         <p>&copy; [Year] Your Name. All rights reserved.</p>
       </footer>
     </main>
+    <script>
+      const navLinks = document.querySelectorAll("nav a");
+      const sections = document.querySelectorAll("section");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = event.target.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          // Hide other sections and show the target section
+          sections.forEach((section) => {
+            if (section === targetElement) {
+              section.classList.remove("hidden");
+            } else {
+              section.classList.add("hidden");
+            }
+          });
+
+          // Scroll to the top of the page (optional)
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
   </body>
 </html>
 <script>
