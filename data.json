@@ -1,5 +1,7 @@
 {
     "name": "Zheng Fu",
     "profession": "Web Developer",
-    "city": "Sydney"
+    "city": "Sydney",
+    "country": "Australia",
+    "year": 2023
 }
