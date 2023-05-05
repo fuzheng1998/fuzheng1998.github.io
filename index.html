@@ -1,192 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Personal Website</title>
-    <!-- import css -->
-    <link rel="stylesheet" href="index.css" />
-    <!-- import js -->
-    <script src="index.js"></script>
-    <style>
-      main {
-        font-family: Arial, sans-serif;
-        opacity: 0;
-      }
-      /* Sections */
-      section {
-        max-width: 960px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js" defer></script>
+  <title>Personal Website</title>
+</head>
+<body >
+<!-- Loading overlay -->
+<div id="loadingOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9); z-index: 9999; display: flex; justify-content: center; align-items: center;">
+  <div class="progress" style="width: 50%;">
+    <div id="loadingBar" class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 sidebar">
+      <!-- Sidebar content -->
+      <div class="d-flex flex-column align-items-center">
+        <img src="your-avatar-image.jpg" alt="Your Name" class="avatar rounded-circle my-3" width="150" height="150">
+        <h3>Your Name</h3>
+        <p>Job Title / Profession</p>
 
-      section h2 {
-        border-bottom: 1px solid #dee2e6;
-        padding-bottom: 5px;
-      }
+        <div class="mt-4">
+          <h5>Contact Information</h5>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a>
+            </li>
+            <li>
+              <strong>Phone:</strong> <a href="tel:+1234567890">+123 456 7890</a>
+            </li>
+            <li>
+              <strong>Location:</strong> City, Country
+            </li>
+          </ul>
+        </div>
 
-      .loading-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #e30909;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .bar {
-        position: relative;
-        width: 50%;
-        height: 5px;
-        background-color: #ff23ff;
-      }
+        <div class="mt-4">
+          <h5>Social Links</h5>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/yourusername/" target="_blank" class="text-decoration-none">
+                <i class="bi bi-linkedin"></i> LinkedIn
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/yourusername" target="_blank" class="text-decoration-none">
+                <i class="bi bi-github"></i> GitHub
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com/yourusername" target="_blank" class="text-decoration-none">
+                <i class="bi bi-twitter"></i> Twitter
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-      .progress {
-        position: absolute;
-        left: 0;
-        height: 100%;
-        background-color: #3498db;
-        width: 0;
-        animation: loading 2s linear;
-      }
+    </div>
+    <div class="col-md-9 main-content">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-tab="about">About Me</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-tab="portfolio">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-tab="resume">Resume</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-tab="contact">Contact
+                </a>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-outline-primary ms-3" id="themeToggle">Toggle Theme</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-      @keyframes loading {
-        0% {
-          width: 0;
-        }
-        100% {
-          width: 100%;
-        }
-      }
+      <!-- Main content sections -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="about">
+          <!-- About Me content -->
+          <div class="about-me">
+            <h2>About Me</h2>
+            <p>
+              Hi, I'm <strong>Your Name</strong>, a passionate [Job Title / Profession] based in [Your Location]. I have [X] years of experience in [your field or industry] and enjoy working on projects that require [mention your skills, e.g., creative problem solving, attention to detail, etc.].
+            </p>
+            <p>
+              I specialize in [mention your area of expertise, e.g., front-end development, UX/UI design, data analysis, etc.]. Throughout my career, I have worked with a variety of clients and companies, helping them achieve their goals by providing innovative and efficient solutions.
+            </p>
+            <p>
+              In my free time, I enjoy [mention your hobbies and interests, e.g., hiking, photography, reading, etc.] and always seek to learn new skills and improve my existing ones. Feel free to explore my portfolio and contact me if you'd like to collaborate on a project or discuss a job opportunity.
+            </p>
+          </div>
 
-      .hidden {
-        display: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="loading-bar">
-      <div class="bar">
-        <div class="progress"></div>
-        <div class="loading-text" style="font-size: larger; margin: 1rem 0rem">
-          loading...
+        </div>
+        <div class="tab-pane" id="portfolio">
+          <!-- Portfolio content -->
+          <!-- Portfolio content -->
+          <div class="portfolio">
+            <h2>Portfolio</h2>
+            <p>Below are some of my recent projects. Click on the project title to view more details and visit the project website.</p>
+
+            <div class="row mt-4">
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="project-1-thumbnail.jpg" class="card-img-top" alt="Project 1">
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="https://www.project-1.com" target="_blank">Project 1</a></h5>
+                    <p class="card-text">A brief description of Project 1.</p>
+                    <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, React</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="project-2-thumbnail.jpg" class="card-img-top" alt="Project 2">
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="https://www.project-2.com" target="_blank">Project 2</a></h5>
+                    <p class="card-text">A brief description of Project 2.</p>
+                    <p><strong>Tech Stack:</strong> Python, Django, PostgreSQL</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="project-3-thumbnail.jpg" class="card-img-top" alt="Project 3">
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="https://www.project-3.com" target="_blank">Project 3</a></h5>
+                    <p class="card-text">A brief description of Project 3.</p>
+                    <p><strong>Tech Stack:</strong> Node.js, Express, MongoDB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add more project cards as needed -->
+          </div>
+
+        </div>
+        <div class="tab-pane" id="resume">
+          <!-- Resume content -->
+          <div class="resume">
+            <h2>Resume</h2>
+            <p>You can download my full resume <a href="your-resume-file.pdf" download>here</a>, or view a summary of my experience and skills below.</p>
+
+            <h3 class="mt-4">Education</h3>
+            <div class="education">
+              <h4>[Degree], [Major]</h4>
+              <h5>[University / Institution]</h5>
+              <p>[City, Country], [Year]</p>
+              <p>[Optional: Description of your studies, achievements, or any relevant coursework]</p>
+            </div>
+
+            <h3 class="mt-4">Experience</h3>
+            <div class="experience">
+              <h4>[Job Title]</h4>
+              <h5>[Company Name]</h5>
+              <p>[City, Country], [Start Date] - [End Date]</p>
+              <ul>
+                <li>[Brief description of your role and key responsibilities]</li>
+                <li>[Another key responsibility or achievement]</li>
+                <li>[Optional: Additional information about your role]</li>
+              </ul>
+            </div>
+            <!-- Add more experience sections as needed -->
+
+            <h3 class="mt-4">Skills</h3>
+            <div class="skills">
+              <p>[List your skills, e.g., HTML, CSS, JavaScript, React, etc.]</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="tab-pane" id="contact">
+          <!-- Contact content -->
+          <div class="contact">
+            <h2>Contact Me</h2>
+            <p>If you'd like to get in touch, please fill out the form below and I'll get back to you as soon as possible.</p>
+
+            <form class="mt-4">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" placeholder="What's this about?" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Please write your message here..." required></textarea>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
     </div>
-    <main>
-      <header style="background-color: #f0f0f0; padding: 20px">
-        <h1>Your Name</h1>
-        <nav>
-          <a href="#home" style="margin-right: 10px">Home</a>
-          <a href="#about" style="margin-right: 10px">About</a>
-          <a href="#portfolio" style="margin-right: 10px">Portfolio</a>
-          <a href="#blog" style="margin-right: 10px">Blog</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
-      <section id="home">
-        <article>
-          <h2>Welcome to My Personal Website</h2>
-          <p>
-            I'm a Resourceful IT grad student from UNSW seeking opportunities to contribute to Web Development based in Sydney. 
-            
-          </p>
-          <p>
-            <a href="#portfolio">Click</a>
-            to explore my work and get in
-              touch!
-          </p>
-        </article>
-      </section>
-
-      <section id="about" class="hidden">
-        <h2>About Me</h2>
-        <p>
-          I am a passionate and driven graduate student pursuing a master's
-          degree in Information and Technology.
-        </p>
-        <p>
-          With a strong foundation in computer and programming , I am eager to
-          apply my knowledge and contribute to software development.
-        </p>
-        <p>
-          Through my coursework and research, I have developed a deep
-          understanding of web development, and I am excited about the prospect
-          of applying this knowledge in a professional setting. I am also highly
-          motivated to learn and develop new skills, and I am constantly seeking
-          out opportunities to grow and expand my knowledge.
-        </p>
-        <p>
-          I am currently seeking opportunities to gain experience and build my
-          network within software engineering, and excited about the prospect of
-          connecting with professionals who share my passion and drive.
-        </p>
-      </section>
-
-      <section id="portfolio" class="hidden">
-        <h2>Portfolio</h2>
-        <p>[Showcase your projects, experience, and achievements]</p>
-      </section>
-
-      <section id="blog" class="hidden">
-        <h2>Blog</h2>
-        <p>[Share your thoughts on topics related to your field]</p>
-      </section>
-
-      <section id="contact" class="hidden">
-        <h2>Contact</h2>
-        <p>Get in touch with me:</p>
-        <p>
-          Email:
-          <a href="mailto:snowden.zheng.fu@outlook.com"
-            >snowden.zheng.fu@outlook.com</a
-          >
-        </p>
-      </section>
-
-      <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
-      </footer>
-    </main>
-    <script>
-      const navLinks = document.querySelectorAll("nav a");
-      const sections = document.querySelectorAll("section");
-      <!-- get h1 -->
-      const h1 = document.querySelector("h1");
-
-      navLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-          event.preventDefault();
-          const targetId = event.target.getAttribute("href");
-          const targetElement = document.querySelector(targetId);
-
-          // Hide other sections and show the target section
-          sections.forEach((section) => {
-            if (section === targetElement) {
-              section.classList.remove("hidden");
-            } else {
-              section.classList.add("hidden");
-            }
-          });
-
-          // Scroll to the top of the page (optional)
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      });
-      setElementTextContent(h1, "Snowden's Space");
-    </script>
-  </body>
+  </div>
+</div>
+</body>
 </html>
-<script>
-  // Hide loading bar and display website content after 5 seconds
-  setTimeout(function () {
-    document.querySelector(".loading-bar").style.display = "none";
-    document.querySelector("main").style.opacity = "1";
-  }, 2000);
-</script>

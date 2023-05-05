@@ -1,35 +1,49 @@
-/* loading bar css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-/* header css */
-header {
+.sidebar {
+  padding: 20px;
+  background-color: #f8f9fa;
+  height: 100vh;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.tab-content .tab-pane {
+  display: none;
+}
+
+.tab-content .tab-pane.active {
+  display: block;
+}
+
+/* Dark theme */
+body.dark-theme {
   background-color: #343a40;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-h1,
-nav a {
-  color: #000;
+  color: #f8f9fa;
 }
 
-nav a {
-  text-decoration: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background-color 0.2s ease;
+body.dark-theme .sidebar {
+  background-color: #23272b;
 }
 
-nav a:hover {
-  background-color: #495057;
-  color: #ffffff;
+body.dark-theme .navbar-light {
+  background-color: #343a40;
 }
-/* section css */
 
-/* footer css */
-footer {
-  background-color: #f0f0f0;
-  color: #000;
-  padding: 20px;
-  text-align: center;
+
+/* resume part*/
+.resume {
+  font-family: 'Roboto', sans-serif;
+}
+
+.resume h2, .resume h3, .resume h4, .resume h5 {
+  font-weight: 700;
+}
+
+.resume h4, .resume h5 {
+  margin-bottom: 0;
 }
