@@ -1,49 +1,71 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .sidebar {
-  padding: 20px;
-  background-color: #f8f9fa;
-  height: 100vh;
+    padding: 20px;
+    background-color: #f8f9fa;
+    height: 100vh;
 }
 
 .main-content {
-  padding: 20px;
+    padding: 20px;
 }
 
 .tab-content .tab-pane {
-  display: none;
+    display: none;
 }
 
 .tab-content .tab-pane.active {
-  display: block;
+    display: block;
 }
 
+/*nav border in light mode*/
+nav {
+    background-color: #f8f9fa;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px;
+}
+.nav-link {
+    color: #212529;
+}
 /* Dark theme */
 body.dark-theme {
-  background-color: #343a40;
-  color: #f8f9fa;
+    background-color: #343a40;
+    color: #f8f9fa;
 }
-
+body.dark-theme p {
+    color: #f8f9fa;
+}
 body.dark-theme .sidebar {
-  background-color: #23272b;
+    background-color: #23272b;
 }
-
-body.dark-theme .navbar-light {
-  background-color: #343a40;
+body.dark-theme nav {
+    background-color: #23272b;
 }
-
+body.dark-theme .nav-link {
+    color: #f8f9fa;
+}
+body.dark-theme .btn-outline-primary {
+    border-color: #f8f9fa;
+    color: #f8f9fa;
+}
+body.dark-theme .btn-outline-primary:hover {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+body.dark-theme .card {
+    background-color: #23272b;
+    color: #f8f9fa;
+}
 
 /* resume part*/
-.resume {
-  font-family: 'Roboto', sans-serif;
-}
 
 .resume h2, .resume h3, .resume h4, .resume h5 {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .resume h4, .resume h5 {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }

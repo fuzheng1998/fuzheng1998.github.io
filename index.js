@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     themeToggle.addEventListener('click', () => {
+        // Toggle the .dark-theme class on each click
         document.body.classList.toggle('dark-theme');
     });
 
