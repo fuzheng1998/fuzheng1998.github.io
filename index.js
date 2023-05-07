@@ -65,4 +65,4 @@ async function loadMarkdown(file, containerId) {
     }
 }
 
-loadMarkdown('./resume.md', 'resume-markdown-container');
+loadMarkdown('resume.md', "resume-markdown-container");
