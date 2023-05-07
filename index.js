@@ -48,3 +48,21 @@ function animateLoadingBar() {
 document.addEventListener('DOMContentLoaded', function() {
     animateLoadingBar();
 });
+
+// load markdown file in html page
+async function loadMarkdown(file, containerId) {
+    try {
+        const response = await fetch(file);
+        if (!response.ok) {
+            throw new Error('Error fetching the Markdown file');
+        }
+
+        const markdown = await response.text();
+        const html = marked.parse(markdown);
+        document.getElementById(containerId).innerHTML = html;
+    } catch (error) {
+        console.error('Error loading Markdown:', error);
+    }
+}
+
+loadMarkdown('./resume.md', 'resume-markdown-container');
