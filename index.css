@@ -59,6 +59,10 @@ body.dark-theme .card {
     background-color: #23272b;
     color: #f8f9fa;
 }
+body.dark-theme .form-control {
+    background-color: #23272b;
+    color: #f8f9fa;
+}
 
 /* resume part*/
 
