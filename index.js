@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
     const navLinks = document.querySelectorAll('.nav-link');
+    const themeIcon = document.getElementById('theme-icon');
 
     themeToggle.addEventListener('click', () => {
+        // if themeIcon current class is bi-sun then remove it and add bi-moon
+        // else remove bi-moon and add bi-sun
+        themeIcon.classList.contains('bi-sun') ? themeIcon.classList.replace('bi-sun', 'bi-moon') : themeIcon.classList.replace('bi-moon', 'bi-sun');
         // Toggle the .dark-theme class on each click
         document.body.classList.toggle('dark-theme');
     });
@@ -26,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 function animateLoadingBar() {
     const loadingBar = document.getElementById('loadingBar');
     let width = 0;
@@ -45,7 +50,8 @@ function animateLoadingBar() {
         }
     }
 }
-document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', function () {
     animateLoadingBar();
 });
 
